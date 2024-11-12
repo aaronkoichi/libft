@@ -6,7 +6,7 @@
 /*   By: zlee <zlee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 17:15:58 by zlee              #+#    #+#             */
-/*   Updated: 2024/11/11 09:17:03 by zlee             ###   ########.fr       */
+/*   Updated: 2024/11/12 13:34:42 by zlee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (is_set(s1[end - 1], set) && end != 0)
 		end--;
 	if (start > end)
-		start = ft_strlen(s1) - start;
+		start = 0;
 	string = (char *)malloc(((end - start) + 1) * sizeof(char));
 	if (!string)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: zlee <zlee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:01:10 by zlee              #+#    #+#             */
-/*   Updated: 2024/11/11 08:44:28 by zlee             ###   ########.fr       */
+/*   Updated: 2024/11/12 12:57:09 by zlee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	count;
 
 	count = 0;
-	if (!s)
+	if (!s || !f)
 		return (NULL);
 	result = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
 	if (!result)

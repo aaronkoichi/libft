@@ -6,7 +6,7 @@
 /*   By: zlee <zlee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 16:52:03 by zlee              #+#    #+#             */
-/*   Updated: 2024/11/07 08:04:02 by zlee             ###   ########.fr       */
+/*   Updated: 2024/11/12 13:41:27 by zlee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int				count;
+	size_t			count;
 	unsigned char	*initial_d;
 	unsigned char	*initial_s;
 
@@ -23,16 +23,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	initial_s = (unsigned char *)src;
 	if (src < dest)
 	{
-		count = (int)n - 1;
-		while (count >= 0)
+		while (count < n)
 		{
-			initial_d[count] = initial_s[count];
-			count--;
+			initial_d[n - count - 1] = initial_s[n - count - 1];
+			count++;
 		}
 	}
 	else if (src > dest)
 	{
-		while ((size_t)count < n)
+		while (count < n)
 		{
 			initial_d[count] = initial_s[count];
 			count++;

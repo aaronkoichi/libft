@@ -29,7 +29,7 @@ $(NAME) : $(OBJ)
 	ar rc $@ $^
 
 %.o : %.c
-	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o ${<:.c=.o}
+	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 	
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
