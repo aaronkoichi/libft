@@ -6,7 +6,7 @@
 /*   By: zlee <zlee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 18:22:51 by zlee              #+#    #+#             */
-/*   Updated: 2024/12/16 14:58:46 by zlee             ###   ########.fr       */
+/*   Updated: 2024/11/11 09:18:18 by zlee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ void	ft_putstr_fd(char *s, int fd)
 	count = 0;
 	if (!s)
 		return ;
-	count = ft_strlen(s);
-	write(fd, s, count);
+	while (s[count] != '\0')
+		ft_putchar_fd(s[count++], fd);
 }
-
-/*int	main(void)*/
-/*{*/
-/*	ft_putstr_fd("Hello World\n", 1);*/
-/*}*/
+/*
+int	main(void)
+{
+	ft_putstr_fd("Hello World\n", 1);
+}
+*/
