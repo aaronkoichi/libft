@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strrncmp.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zlee <zlee@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 18:27:15 by zlee              #+#    #+#             */
-/*   Updated: 2025/03/21 12:46:34 by zlee             ###   ########.fr       */
+/*   Created: 2025/03/20 16:19:29 by zlee              #+#    #+#             */
+/*   Updated: 2025/03/21 12:43:57 by zlee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_strrncmp(const char *s1, const char *s2, size_t n)
 {
-	if (n == -2147483648)
-	{
-		(void)!write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		(void)!write(fd, "-", 1);
-		n = -n;
-	}
-	if (n > 9)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd(n % 10 + 48, fd);
+	size_t	c1;
+	size_t	c2;
+	size_t	i;
+
+	i = -1;
+	c1 = ft_strlen(s1);
+	c2 = ft_strlen(s2);
+	while (++i < n && i < ft_strlen(s1) && ft_strlen(s2))
+		if (((unsigned char)s1[--c1]) - (unsigned char)s2[--c2] != 0)
+			return ((int)((unsigned char)s1[c1] - (unsigned char)s2[c2]));
+	if (i != n)
+		return ((int)((unsigned char)s1[c1] - (unsigned char)s2[c2]));
+	return (0);
 }
-//
-//int	main(void)
-//{
-	//ft_putnbr_fd(12121212, 1);
-//}
